@@ -1,12 +1,4 @@
-const theme = {
 
-    title: "ASEAN Vocab Passport",
-
-    subtitle: "Learn English through ASEAN Football",
-
-    startButton: "Start Journey"
-
-};
 
 document.getElementById("passport-title").textContent = theme.title;
 
