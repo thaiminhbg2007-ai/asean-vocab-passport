@@ -15,7 +15,9 @@ document.getElementById("start-btn").addEventListener("click", function () {
 
     document.getElementById("question-screen").style.display = "block";
 
-    document.getElementById("question-text").textContent =
-        "Which country does this football player come from?";
+    const currentQuestion = questions[0];
+
+document.getElementById("question-text").textContent =
+    currentQuestion.question;
 
 });
