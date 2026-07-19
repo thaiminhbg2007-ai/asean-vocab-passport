@@ -75,3 +75,86 @@ main{
     color:#006A4E;
 
 }
+.passport-card{
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+.passport-cover{
+
+    width:380px;
+
+    height:520px;
+
+    background:linear-gradient(160deg,#006A4E,#004D38);
+
+    border-radius:18px;
+
+    color:white;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    box-shadow:0 20px 40px rgba(0,0,0,.25);
+
+}
+
+.passport-title{
+
+    font-size:34px;
+
+    font-weight:bold;
+
+    text-align:center;
+
+    letter-spacing:2px;
+
+}
+
+.passport-subtitle{
+
+    margin-top:20px;
+
+    font-size:20px;
+
+    opacity:.85;
+
+}
+
+.start-btn{
+
+    margin-top:60px;
+
+    padding:14px 36px;
+
+    font-size:18px;
+
+    border:none;
+
+    border-radius:50px;
+
+    cursor:pointer;
+
+    background:white;
+
+    color:#006A4E;
+
+    font-weight:bold;
+
+    transition:.25s;
+
+}
+
+.start-btn:hover{
+
+    transform:scale(1.06);
+
+}
