@@ -89,9 +89,13 @@ main{
 
     height:520px;
 
-    background:linear-gradient(160deg,#006A4E,#004D38);
+    background-image:url("assets/images/backgrounds/passport-bg.jpg");
+    background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
 
     border-radius:18px;
+    overflow:hidden;
 
     color:white;
 
