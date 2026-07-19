@@ -4,8 +4,17 @@ const campaign = {
 
     subtitle: "Learn English through ASEAN Football",
 
-    buttonText: "Start Journey",
-
-    themeColor: "#006A4E"
+    buttonText: "Start Journey"
 
 };
+
+//====================
+
+document.getElementById("passport-title").textContent =
+campaign.title;
+
+document.getElementById("passport-subtitle").textContent =
+campaign.subtitle;
+
+document.getElementById("start-btn").textContent =
+campaign.buttonText;
