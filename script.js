@@ -11,6 +11,11 @@ document.getElementById("start-btn").style.color = theme.colors.buttonText;
 document.getElementById("start-btn").style.backgroundColor = theme.colors.buttonBackground;
 document.getElementById("start-btn").addEventListener("click", function () {
 
-    alert("Quiz sẽ bắt đầu ở bước tiếp theo!");
+    document.querySelector(".passport-card").style.display = "none";
+
+    document.getElementById("question-screen").style.display = "block";
+
+    document.getElementById("question-text").textContent =
+        "Which country does this football player come from?";
 
 });
