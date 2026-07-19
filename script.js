@@ -19,5 +19,20 @@ document.getElementById("start-btn").addEventListener("click", function () {
 
 document.getElementById("question-text").textContent =
     currentQuestion.question;
+    const answerList = document.getElementById("answer-list");
+
+answerList.innerHTML = "";
+
+currentQuestion.answers.forEach(function(answer){
+
+    const button = document.createElement("button");
+
+    button.textContent = answer;
+
+    button.className = "answer-btn";
+
+    answerList.appendChild(button);
+
+});
 
 });
