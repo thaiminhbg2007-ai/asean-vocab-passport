@@ -2,14 +2,20 @@
 // Theme
 // =========================
 
-document.getElementById("passport-title").textContent = theme.info.title;
-document.getElementById("passport-subtitle").textContent = theme.info.subtitle;
-document.getElementById("start-btn").textContent = theme.info.startButton;
+function applyTheme(){
 
-document.getElementById("passport-title").style.color = theme.colors.title;
-document.getElementById("passport-subtitle").style.color = theme.colors.subtitle;
-document.getElementById("start-btn").style.color = theme.colors.buttonText;
-document.getElementById("start-btn").style.backgroundColor = theme.colors.buttonBackground;
+    document.getElementById("passport-title").textContent = theme.info.title;
+    document.getElementById("passport-subtitle").textContent = theme.info.subtitle;
+    document.getElementById("start-btn").textContent = theme.info.startButton;
+
+    document.getElementById("passport-title").style.color = theme.colors.title;
+    document.getElementById("passport-subtitle").style.color = theme.colors.subtitle;
+    document.getElementById("start-btn").style.color = theme.colors.buttonText;
+    document.getElementById("start-btn").style.backgroundColor = theme.colors.buttonBackground;
+
+}
+
+applyTheme();
 
 
 // =========================
@@ -23,17 +29,17 @@ let currentQuestionIndex = 0;
 // UI Engine
 // =========================
 
-function showScreen(screenName) {
+function showScreen(screenName){
 
     document.querySelector(".passport-card").style.display = "none";
     document.getElementById("question-screen").style.display = "none";
 
-    if (screenName === "passport") {
-        document.querySelector(".passport-card").style.display = "flex";
+    if(screenName==="passport"){
+        document.querySelector(".passport-card").style.display="flex";
     }
 
-    if (screenName === "question") {
-        document.getElementById("question-screen").style.display = "block";
+    if(screenName==="question"){
+        document.getElementById("question-screen").style.display="block";
     }
 
 }
@@ -43,7 +49,7 @@ function showScreen(screenName) {
 // Load Question
 // =========================
 
-function loadQuestion() {
+function loadQuestion(){
 
     const currentQuestion = questions[currentQuestionIndex];
 
@@ -54,49 +60,49 @@ function loadQuestion() {
 
     answerList.innerHTML = "";
 
-    currentQuestion.answers.forEach(function (answer, index) {
+    currentQuestion.answers.forEach(function(answer,index){
 
         const button = document.createElement("button");
 
         button.textContent = answer;
+
         button.className = "answer-btn";
 
-        button.addEventListener("click", function () {
+        button.addEventListener("click",function(){
 
-            // Khóa tất cả nút
-            document.querySelectorAll(".answer-btn").forEach(function (btn) {
+            document.querySelectorAll(".answer-btn").forEach(function(btn){
+
                 btn.disabled = true;
+
             });
 
-            // Đổi màu theo Theme
-            if (index === currentQuestion.correct) {
+            if(index===currentQuestion.correct){
 
                 button.style.backgroundColor = theme.colors.correct;
                 button.style.color = "white";
 
-            } else {
+            }else{
 
                 button.style.backgroundColor = theme.colors.wrong;
                 button.style.color = "white";
 
             }
 
-            // Sang câu tiếp
-            setTimeout(function () {
+            setTimeout(function(){
 
                 currentQuestionIndex++;
 
-                if (currentQuestionIndex < questions.length) {
+                if(currentQuestionIndex<questions.length){
 
                     loadQuestion();
 
-                } else {
+                }else{
 
                     alert("Hết câu hỏi!");
 
                 }
 
-            }, 800);
+            },800);
 
         });
 
@@ -111,7 +117,7 @@ function loadQuestion() {
 // Start Button
 // =========================
 
-document.getElementById("start-btn").addEventListener("click", function () {
+document.getElementById("start-btn").addEventListener("click",function(){
 
     currentQuestionIndex = 0;
 
