@@ -29,6 +29,38 @@ let currentQuestionIndex = 0;
 // Animation Engine
 // =========================
 
+function runAnimation(type, button){
+
+    switch(type){
+
+        case "greenFlash":
+
+            button.style.backgroundColor = theme.colors.correct;
+            button.style.color = "white";
+            break;
+
+        case "redFlash":
+
+            button.style.backgroundColor = theme.colors.wrong;
+            button.style.color = "white";
+            break;
+
+        case "fade":
+
+            document.getElementById("question-screen").style.opacity = "0.4";
+
+            setTimeout(function(){
+
+                document.getElementById("question-screen").style.opacity = "1";
+
+            },200);
+
+            break;
+
+    }
+
+}
+
 function playAnswerAnimation(isCorrect, clickedButton){
 
     document.querySelectorAll(".answer-btn").forEach(function(btn){
@@ -39,21 +71,21 @@ function playAnswerAnimation(isCorrect, clickedButton){
 
     if(isCorrect){
 
-        clickedButton.style.backgroundColor = theme.colors.correct;
-        clickedButton.style.color = "white";
+        runAnimation(theme.animations.correct, clickedButton);
 
     }else{
 
-        clickedButton.style.backgroundColor = theme.colors.wrong;
-        clickedButton.style.color = "white";
+        runAnimation(theme.animations.wrong, clickedButton);
 
     }
 
     setTimeout(function(){
 
+        runAnimation(theme.animations.next, clickedButton);
+
         nextQuestion();
 
-    },800);
+    },theme.animations.duration);
 
 }
 
@@ -85,8 +117,8 @@ function nextQuestion(){
 
 function showScreen(screenName){
 
-    document.querySelector(".passport-card").style.display = "none";
-    document.getElementById("question-screen").style.display = "none";
+    document.querySelector(".passport-card").style.display="none";
+    document.getElementById("question-screen").style.display="none";
 
     if(screenName==="passport"){
 
@@ -128,7 +160,7 @@ function loadQuestion(){
 
         button.addEventListener("click",function(){
 
-            const isCorrect = index === currentQuestion.correct;
+            const isCorrect = index===currentQuestion.correct;
 
             playAnswerAnimation(isCorrect,button);
 
@@ -147,7 +179,7 @@ function loadQuestion(){
 
 document.getElementById("start-btn").addEventListener("click",function(){
 
-    currentQuestionIndex = 0;
+    currentQuestionIndex=0;
 
     showScreen("question");
 
