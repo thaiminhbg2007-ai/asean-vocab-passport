@@ -1,5 +1,23 @@
 
+function showScreen(screenName){
 
+    document.querySelector(".passport-card").style.display="none";
+
+    document.getElementById("question-screen").style.display="none";
+
+    if(screenName==="passport"){
+
+        document.querySelector(".passport-card").style.display="flex";
+
+    }
+
+    if(screenName==="question"){
+
+        document.getElementById("question-screen").style.display="block";
+
+    }
+
+}
 document.getElementById("passport-title").textContent = theme.title;
 
 document.getElementById("passport-subtitle").textContent = theme.subtitle;
@@ -11,9 +29,7 @@ document.getElementById("start-btn").style.color = theme.colors.buttonText;
 document.getElementById("start-btn").style.backgroundColor = theme.colors.buttonBackground;
 document.getElementById("start-btn").addEventListener("click", function () {
 
-    document.querySelector(".passport-card").style.display = "none";
-
-    document.getElementById("question-screen").style.display = "block";
+    showScreen("question");
 
     const currentQuestion = questions[0];
 
