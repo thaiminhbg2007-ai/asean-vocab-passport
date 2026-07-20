@@ -62,11 +62,25 @@ document.getElementById("start-btn").addEventListener("click", function () {
 
     const button = document.createElement("button");
 
-    button.textContent = answer;
+   button.textContent = answer;
 
-    button.className = "answer-btn";
+button.className = "answer-btn";
 
-    answerList.appendChild(button);
+button.addEventListener("click", function(){
+
+    if(answer === currentQuestion.answers[currentQuestion.correct]){
+
+        alert("Correct!");
+
+    }else{
+
+        alert("Wrong!");
+
+    }
+
+});
+
+answerList.appendChild(button);
 
 });
 
