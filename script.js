@@ -23,16 +23,16 @@ let currentQuestionIndex = 0;
 // UI Engine
 // =========================
 
-function showScreen(screenName){
+function showScreen(screenName) {
 
     document.querySelector(".passport-card").style.display = "none";
     document.getElementById("question-screen").style.display = "none";
 
-    if(screenName === "passport"){
+    if (screenName === "passport") {
         document.querySelector(".passport-card").style.display = "flex";
     }
 
-    if(screenName === "question"){
+    if (screenName === "question") {
         document.getElementById("question-screen").style.display = "block";
     }
 
@@ -43,7 +43,7 @@ function showScreen(screenName){
 // Load Question
 // =========================
 
-function loadQuestion(){
+function loadQuestion() {
 
     const currentQuestion = questions[currentQuestionIndex];
 
@@ -54,25 +54,49 @@ function loadQuestion(){
 
     answerList.innerHTML = "";
 
-    currentQuestion.answers.forEach(function(answer,index){
+    currentQuestion.answers.forEach(function (answer, index) {
 
         const button = document.createElement("button");
 
         button.textContent = answer;
-
         button.className = "answer-btn";
 
-        button.addEventListener("click",function(){
+        button.addEventListener("click", function () {
 
-            if(index === currentQuestion.correct){
+            // Khóa tất cả nút
+            document.querySelectorAll(".answer-btn").forEach(function (btn) {
+                btn.disabled = true;
+            });
 
-                alert("Correct!");
+            // Đổi màu
+            if (index === currentQuestion.correct) {
 
-            }else{
+                button.style.backgroundColor = "#4CAF50";
+                button.style.color = "white";
 
-                alert("Wrong!");
+            } else {
+
+                button.style.backgroundColor = "#E53935";
+                button.style.color = "white";
 
             }
+
+            // Sang câu tiếp
+            setTimeout(function () {
+
+                currentQuestionIndex++;
+
+                if (currentQuestionIndex < questions.length) {
+
+                    loadQuestion();
+
+                } else {
+
+                    alert("Hết câu hỏi!");
+
+                }
+
+            }, 800);
 
         });
 
@@ -87,7 +111,9 @@ function loadQuestion(){
 // Start Button
 // =========================
 
-document.getElementById("start-btn").addEventListener("click",function(){
+document.getElementById("start-btn").addEventListener("click", function () {
+
+    currentQuestionIndex = 0;
 
     showScreen("question");
 
