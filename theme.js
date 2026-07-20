@@ -58,12 +58,13 @@ const passportTheme = {
 
         wrong:"redFlash",
 
-        next:"fade"
+        next:"fade",
+
+        duration:800
 
     }
 
 };
-
 
 // =========================
 // Theme Manager
