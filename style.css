@@ -7,9 +7,7 @@
 body{
 
     font-family:Arial, Helvetica, sans-serif;
-
     background:#eef3f8;
-
     color:#1f2937;
 
 }
@@ -17,13 +15,9 @@ body{
 header{
 
     background:linear-gradient(135deg,#006A4E,#008D62);
-
     color:white;
-
     text-align:center;
-
     padding:40px 20px;
-
     box-shadow:0 4px 12px rgba(0,0,0,.15);
 
 }
@@ -31,7 +25,6 @@ header{
 header h1{
 
     font-size:42px;
-
     margin-bottom:10px;
 
 }
@@ -39,7 +32,6 @@ header h1{
 header p{
 
     font-size:18px;
-
     opacity:.9;
 
 }
@@ -47,24 +39,22 @@ header p{
 main{
 
     max-width:1000px;
-
     margin:40px auto;
-
     padding:20px;
 
 }
+
+/* =========================
+   Quiz Area
+========================= */
 
 #quiz-area,
 #question-screen{
 
     background:white;
-
     border-radius:20px;
-
     padding:60px;
-
     text-align:center;
-
     box-shadow:0 10px 30px rgba(0,0,0,.08);
 
 }
@@ -72,14 +62,18 @@ main{
 #question-screen h2{
 
     font-size:36px;
-
     color:#006A4E;
+    margin-bottom:35px;
 
 }
+
+/* =========================
+   Passport
+========================= */
+
 .passport-card{
 
     display:flex;
-
     justify-content:center;
 
 }
@@ -87,13 +81,12 @@ main{
 .passport-cover{
 
     width:380px;
-
     height:520px;
 
     background-image:url("assets/images/backgrounds/passport-bg.jpg");
     background-size:cover;
-background-position:center;
-background-repeat:no-repeat;
+    background-position:center;
+    background-repeat:no-repeat;
 
     border-radius:18px;
     overflow:hidden;
@@ -101,11 +94,8 @@ background-repeat:no-repeat;
     color:white;
 
     display:flex;
-
     flex-direction:column;
-
     justify-content:center;
-
     align-items:center;
 
     box-shadow:0 20px 40px rgba(0,0,0,.25);
@@ -115,11 +105,8 @@ background-repeat:no-repeat;
 .passport-title{
 
     font-size:34px;
-
     font-weight:bold;
-
     text-align:center;
-
     letter-spacing:2px;
 
 }
@@ -127,12 +114,14 @@ background-repeat:no-repeat;
 .passport-subtitle{
 
     margin-top:20px;
-
     font-size:20px;
-
     opacity:.85;
 
 }
+
+/* =========================
+   Start Button
+========================= */
 
 .start-btn{
 
@@ -154,51 +143,91 @@ background-repeat:no-repeat;
 
     font-weight:bold;
 
-    transition:.25s;
+    transition:
+        transform .18s ease,
+        box-shadow .18s ease,
+        background-color .18s ease;
+
+    box-shadow:0 6px 14px rgba(0,0,0,.15);
 
 }
 
 .start-btn:hover{
 
-    transform:scale(1.06);
+    transform:scale(.97);
+
+    box-shadow:0 14px 28px rgba(0,0,0,.22);
 
 }
+
+.start-btn:active{
+
+    transform:scale(.92);
+
+}
+
+/* =========================
+   Answer List
+========================= */
+
 #answer-list{
 
     display:flex;
-
     flex-direction:column;
-
     gap:18px;
-
-    margin-top:40px;
 
 }
 
+/* =========================
+   Answer Button
+========================= */
+
 .answer-btn{
+
+    width:100%;
 
     padding:18px;
 
     font-size:20px;
 
+    font-weight:600;
+
     border:none;
 
-    border-radius:14px;
+    border-radius:16px;
 
     cursor:pointer;
 
-    background:#ffffff;
+    background:white;
 
-    box-shadow:0 5px 15px rgba(0,0,0,.1);
+    color:#1f2937;
 
-    transition:.25s;
+    box-shadow:0 5px 15px rgba(0,0,0,.10);
+
+    transition:
+        transform .18s ease,
+        box-shadow .18s ease,
+        background-color .18s ease,
+        color .18s ease;
 
 }
 
 .answer-btn:hover{
 
-    transform:translateY(-2px);
+    transform:scale(.97);
 
-    background:#f3f4f6;
+    box-shadow:0 12px 24px rgba(0,0,0,.18);
+
+}
+
+.answer-btn:active{
+
+    transform:scale(.92);
+
+}
+
+.answer-btn:disabled{
+
+    cursor:default;
 
 }
