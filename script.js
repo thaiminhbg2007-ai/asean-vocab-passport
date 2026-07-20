@@ -42,6 +42,47 @@ function playSound(type){
 
 
 // =========================
+// Result Engine
+// =========================
+
+const result = {
+
+    total:0,
+
+    correct:0,
+
+    wrong:0,
+
+    accuracy:0,
+
+    perfect:false
+
+};
+
+function resetResult(){
+
+    result.total = questions.length;
+    result.correct = 0;
+    result.wrong = 0;
+    result.accuracy = 0;
+    result.perfect = false;
+
+}
+
+function calculateResult(){
+
+    result.wrong = result.total - result.correct;
+
+    result.accuracy = Math.round(
+        result.correct / result.total * 100
+    );
+
+    result.perfect = result.correct === result.total;
+
+}
+
+
+// =========================
 // Question Engine
 // =========================
 
@@ -83,7 +124,6 @@ function runAnimation(type,button){
     }
 
 }
-
 
 function playAnswerAnimation(isCorrect,clickedButton){
 
@@ -128,13 +168,21 @@ function nextQuestion(){
 
     currentQuestionIndex++;
 
-    if(currentQuestionIndex<questions.length){
+    if(currentQuestionIndex < questions.length){
 
         loadQuestion();
 
     }else{
 
-        alert("Hết câu hỏi!");
+        calculateResult();
+
+        console.log(result);
+
+        alert(
+            "Correct: " + result.correct +
+            "\nWrong: " + result.wrong +
+            "\nAccuracy: " + result.accuracy + "%"
+        );
 
     }
 
@@ -197,7 +245,13 @@ function loadQuestion(){
 
             playSound("click");
 
-            const isCorrect=index===currentQuestion.correct;
+            const isCorrect = index===currentQuestion.correct;
+
+            if(isCorrect){
+
+                result.correct++;
+
+            }
 
             playAnswerAnimation(isCorrect,button);
 
@@ -219,6 +273,8 @@ document.getElementById("start-btn").addEventListener("click",function(){
     playSound("click");
 
     currentQuestionIndex=0;
+
+    resetResult();
 
     showScreen("question");
 
