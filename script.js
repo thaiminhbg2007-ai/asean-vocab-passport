@@ -26,6 +26,60 @@ let currentQuestionIndex = 0;
 
 
 // =========================
+// Animation Engine
+// =========================
+
+function playAnswerAnimation(isCorrect, clickedButton){
+
+    document.querySelectorAll(".answer-btn").forEach(function(btn){
+
+        btn.disabled = true;
+
+    });
+
+    if(isCorrect){
+
+        clickedButton.style.backgroundColor = theme.colors.correct;
+        clickedButton.style.color = "white";
+
+    }else{
+
+        clickedButton.style.backgroundColor = theme.colors.wrong;
+        clickedButton.style.color = "white";
+
+    }
+
+    setTimeout(function(){
+
+        nextQuestion();
+
+    },800);
+
+}
+
+
+// =========================
+// Question Controller
+// =========================
+
+function nextQuestion(){
+
+    currentQuestionIndex++;
+
+    if(currentQuestionIndex < questions.length){
+
+        loadQuestion();
+
+    }else{
+
+        alert("Hết câu hỏi!");
+
+    }
+
+}
+
+
+// =========================
 // UI Engine
 // =========================
 
@@ -35,11 +89,15 @@ function showScreen(screenName){
     document.getElementById("question-screen").style.display = "none";
 
     if(screenName==="passport"){
+
         document.querySelector(".passport-card").style.display="flex";
+
     }
 
     if(screenName==="question"){
+
         document.getElementById("question-screen").style.display="block";
+
     }
 
 }
@@ -70,39 +128,9 @@ function loadQuestion(){
 
         button.addEventListener("click",function(){
 
-            document.querySelectorAll(".answer-btn").forEach(function(btn){
+            const isCorrect = index === currentQuestion.correct;
 
-                btn.disabled = true;
-
-            });
-
-            if(index===currentQuestion.correct){
-
-                button.style.backgroundColor = theme.colors.correct;
-                button.style.color = "white";
-
-            }else{
-
-                button.style.backgroundColor = theme.colors.wrong;
-                button.style.color = "white";
-
-            }
-
-            setTimeout(function(){
-
-                currentQuestionIndex++;
-
-                if(currentQuestionIndex<questions.length){
-
-                    loadQuestion();
-
-                }else{
-
-                    alert("Hết câu hỏi!");
-
-                }
-
-            },800);
+            playAnswerAnimation(isCorrect,button);
 
         });
 
