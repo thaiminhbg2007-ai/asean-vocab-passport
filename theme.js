@@ -1,17 +1,14 @@
-
 const theme = {
 
-    title: "ASEAN Vocab Passport",
+    info:{
 
-    subtitle: "Learn English through ASEAN Football",
+        title:"ASEAN Vocab Passport",
 
-    startButton: "Start Journey",
+        subtitle:"Learn English through ASEAN Football",
 
-    background: "assets/images/backgrounds/passport-bg.jpg",
+        startButton:"Start Journey"
 
-    rewardAnimation: "stamp",
-
-    rewardSound: "stamp",
+    },
 
     colors:{
 
@@ -22,6 +19,42 @@ const theme = {
         buttonText:"#006A4E",
 
         buttonBackground:"#ffffff"
+
+    },
+
+    fonts:{
+
+        title:"Arial",
+
+        body:"Arial"
+
+    },
+
+    sounds:{
+
+        hover:null,
+
+        click:null,
+
+        correct:null,
+
+        wrong:null,
+
+        next:null
+
+    },
+
+    animations:{
+
+        hover:"shrink",
+
+        click:"press",
+
+        correct:"greenFlash",
+
+        wrong:"redFlash",
+
+        next:"fade"
 
     }
 
