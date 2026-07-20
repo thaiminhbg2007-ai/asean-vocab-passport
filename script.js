@@ -2,9 +2,9 @@
 // Theme
 // =========================
 
-document.getElementById("passport-title").textContent = theme.title;
-document.getElementById("passport-subtitle").textContent = theme.subtitle;
-document.getElementById("start-btn").textContent = theme.startButton;
+document.getElementById("passport-title").textContent = theme.info.title;
+document.getElementById("passport-subtitle").textContent = theme.info.subtitle;
+document.getElementById("start-btn").textContent = theme.info.startButton;
 
 document.getElementById("passport-title").style.color = theme.colors.title;
 document.getElementById("passport-subtitle").style.color = theme.colors.subtitle;
