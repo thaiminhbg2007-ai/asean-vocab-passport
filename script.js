@@ -1,6 +1,33 @@
 
 function showScreen(screenName){
 
+    let currentQuestionIndex = 0;
+
+function loadQuestion(){
+
+    const currentQuestion = questions[currentQuestionIndex];
+
+    document.getElementById("question-text").textContent =
+        currentQuestion.question;
+
+    const answerList = document.getElementById("answer-list");
+
+    answerList.innerHTML = "";
+
+    currentQuestion.answers.forEach(function(answer){
+
+        const button = document.createElement("button");
+
+        button.textContent = answer;
+
+        button.className = "answer-btn";
+
+        answerList.appendChild(button);
+
+    });
+
+}
+
     document.querySelector(".passport-card").style.display="none";
 
     document.getElementById("question-screen").style.display="none";
@@ -31,15 +58,7 @@ document.getElementById("start-btn").addEventListener("click", function () {
 
     showScreen("question");
 
-    const currentQuestion = questions[0];
-
-document.getElementById("question-text").textContent =
-    currentQuestion.question;
-    const answerList = document.getElementById("answer-list");
-
-answerList.innerHTML = "";
-
-currentQuestion.answers.forEach(function(answer){
+    loadQuestion();
 
     const button = document.createElement("button");
 
