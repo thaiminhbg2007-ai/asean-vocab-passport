@@ -44,6 +44,7 @@ main{
 
 }
 
+
 /* =========================
    Quiz Area
 ========================= */
@@ -66,6 +67,7 @@ main{
     margin-bottom:35px;
 
 }
+
 
 /* =========================
    Passport
@@ -119,6 +121,44 @@ main{
 
 }
 
+
+/* =========================
+   Buttons (Universal)
+========================= */
+
+.start-btn,
+.answer-btn{
+
+    transition:
+        transform .12s ease,
+        box-shadow .12s ease,
+        filter .12s ease,
+        background-color .18s ease,
+        color .18s ease;
+
+}
+
+.start-btn:hover,
+.answer-btn:hover{
+
+    transform:translateY(-3px) scale(.98);
+
+    filter:brightness(1.04);
+
+    box-shadow:0 14px 28px rgba(0,0,0,.20);
+
+}
+
+.start-btn:active,
+.answer-btn:active{
+
+    transform:translateY(2px) scale(.94);
+
+    box-shadow:0 5px 10px rgba(0,0,0,.15);
+
+}
+
+
 /* =========================
    Start Button
 ========================= */
@@ -143,28 +183,10 @@ main{
 
     font-weight:bold;
 
-    transition:
-        transform .18s ease,
-        box-shadow .18s ease,
-        background-color .18s ease;
-
     box-shadow:0 6px 14px rgba(0,0,0,.15);
 
 }
 
-.start-btn:hover{
-
-    transform:scale(.97);
-
-    box-shadow:0 14px 28px rgba(0,0,0,.22);
-
-}
-
-.start-btn:active{
-
-    transform:scale(.92);
-
-}
 
 /* =========================
    Answer List
@@ -177,6 +199,7 @@ main{
     gap:18px;
 
 }
+
 
 /* =========================
    Answer Button
@@ -203,26 +226,6 @@ main{
     color:#1f2937;
 
     box-shadow:0 5px 15px rgba(0,0,0,.10);
-
-    transition:
-        transform .18s ease,
-        box-shadow .18s ease,
-        background-color .18s ease,
-        color .18s ease;
-
-}
-
-.answer-btn:hover{
-
-    transform:scale(.97);
-
-    box-shadow:0 12px 24px rgba(0,0,0,.18);
-
-}
-
-.answer-btn:active{
-
-    transform:scale(.92);
 
 }
 
