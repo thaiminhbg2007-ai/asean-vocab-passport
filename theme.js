@@ -44,7 +44,9 @@ const passportTheme = {
 
         wrong:null,
 
-        next:null
+        next:null,
+
+        volume:0.5
 
     },
 
