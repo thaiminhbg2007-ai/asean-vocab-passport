@@ -18,7 +18,11 @@ const theme = {
 
         buttonText:"#006A4E",
 
-        buttonBackground:"#ffffff"
+        buttonBackground:"#ffffff",
+
+        correct:"#4CAF50",
+
+        wrong:"#E53935"
 
     },
 
