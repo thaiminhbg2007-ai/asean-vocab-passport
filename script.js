@@ -19,6 +19,29 @@ applyTheme();
 
 
 // =========================
+// Audio Engine
+// =========================
+
+function playSound(type){
+
+    const path = theme.sounds[type];
+
+    if(path===null){
+
+        return;
+
+    }
+
+    const audio = new Audio(path);
+
+    audio.volume = theme.sounds.volume;
+
+    audio.play();
+
+}
+
+
+// =========================
 // Question Engine
 // =========================
 
@@ -29,7 +52,7 @@ let currentQuestionIndex = 0;
 // Animation Engine
 // =========================
 
-function runAnimation(type, button){
+function runAnimation(type,button){
 
     switch(type){
 
@@ -47,11 +70,11 @@ function runAnimation(type, button){
 
         case "fade":
 
-            document.getElementById("question-screen").style.opacity = "0.4";
+            document.getElementById("question-screen").style.opacity="0.4";
 
             setTimeout(function(){
 
-                document.getElementById("question-screen").style.opacity = "1";
+                document.getElementById("question-screen").style.opacity="1";
 
             },200);
 
@@ -61,27 +84,34 @@ function runAnimation(type, button){
 
 }
 
-function playAnswerAnimation(isCorrect, clickedButton){
+
+function playAnswerAnimation(isCorrect,clickedButton){
 
     document.querySelectorAll(".answer-btn").forEach(function(btn){
 
-        btn.disabled = true;
+        btn.disabled=true;
 
     });
 
     if(isCorrect){
 
-        runAnimation(theme.animations.correct, clickedButton);
+        playSound("correct");
+
+        runAnimation(theme.animations.correct,clickedButton);
 
     }else{
 
-        runAnimation(theme.animations.wrong, clickedButton);
+        playSound("wrong");
+
+        runAnimation(theme.animations.wrong,clickedButton);
 
     }
 
     setTimeout(function(){
 
-        runAnimation(theme.animations.next, clickedButton);
+        playSound("next");
+
+        runAnimation(theme.animations.next,clickedButton);
 
         nextQuestion();
 
@@ -98,7 +128,7 @@ function nextQuestion(){
 
     currentQuestionIndex++;
 
-    if(currentQuestionIndex < questions.length){
+    if(currentQuestionIndex<questions.length){
 
         loadQuestion();
 
@@ -141,26 +171,33 @@ function showScreen(screenName){
 
 function loadQuestion(){
 
-    const currentQuestion = questions[currentQuestionIndex];
+    const currentQuestion=questions[currentQuestionIndex];
 
-    document.getElementById("question-text").textContent =
-        currentQuestion.question;
+    document.getElementById("question-text").textContent=currentQuestion.question;
 
-    const answerList = document.getElementById("answer-list");
+    const answerList=document.getElementById("answer-list");
 
-    answerList.innerHTML = "";
+    answerList.innerHTML="";
 
     currentQuestion.answers.forEach(function(answer,index){
 
-        const button = document.createElement("button");
+        const button=document.createElement("button");
 
-        button.textContent = answer;
+        button.textContent=answer;
 
-        button.className = "answer-btn";
+        button.className="answer-btn";
+
+        button.addEventListener("mouseenter",function(){
+
+            playSound("hover");
+
+        });
 
         button.addEventListener("click",function(){
 
-            const isCorrect = index===currentQuestion.correct;
+            playSound("click");
+
+            const isCorrect=index===currentQuestion.correct;
 
             playAnswerAnimation(isCorrect,button);
 
@@ -178,6 +215,8 @@ function loadQuestion(){
 // =========================
 
 document.getElementById("start-btn").addEventListener("click",function(){
+
+    playSound("click");
 
     currentQuestionIndex=0;
 
