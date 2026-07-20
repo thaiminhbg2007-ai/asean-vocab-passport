@@ -1,4 +1,4 @@
-const theme = {
+const passportTheme = {
 
     info:{
 
@@ -63,3 +63,10 @@ const theme = {
     }
 
 };
+
+
+// =========================
+// Theme Manager
+// =========================
+
+let theme = passportTheme;
