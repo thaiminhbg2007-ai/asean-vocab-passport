@@ -68,15 +68,15 @@ function loadQuestion() {
                 btn.disabled = true;
             });
 
-            // Đổi màu
+            // Đổi màu theo Theme
             if (index === currentQuestion.correct) {
 
-                button.style.backgroundColor = "#4CAF50";
+                button.style.backgroundColor = theme.colors.correct;
                 button.style.color = "white";
 
             } else {
 
-                button.style.backgroundColor = "#E53935";
+                button.style.backgroundColor = theme.colors.wrong;
                 button.style.color = "white";
 
             }
