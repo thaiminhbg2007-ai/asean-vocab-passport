@@ -4,7 +4,6 @@
 
 function applyTheme(){
 
-```
 document.getElementById("passport-title").textContent = theme.info.title;
 document.getElementById("passport-subtitle").textContent = theme.info.subtitle;
 document.getElementById("start-btn").textContent = theme.info.startButton;
@@ -13,7 +12,6 @@ document.getElementById("passport-title").style.color = theme.colors.title;
 document.getElementById("passport-subtitle").style.color = theme.colors.subtitle;
 document.getElementById("start-btn").style.color = theme.colors.buttonText;
 document.getElementById("start-btn").style.backgroundColor = theme.colors.buttonBackground;
-```
 
 }
 
@@ -25,7 +23,6 @@ applyTheme();
 
 function playSound(type){
 
-```
 const path = theme.sounds[type];
 
 if(path===null) return;
@@ -35,7 +32,6 @@ const audio = new Audio(path);
 audio.volume = theme.sounds.volume;
 
 audio.play();
-```
 
 }
 
@@ -54,31 +50,28 @@ wrong:0,
 accuracy:0,
 
 perfect:false
-```
+
 
 };
 
 function resetResult(){
 
-```
 result.total=questions.length;
 result.correct=0;
 result.wrong=0;
 result.accuracy=0;
 result.perfect=false;
-```
+
 
 }
 
 function calculateResult(){
 
-```
 result.wrong=result.total-result.correct;
 
 result.accuracy=Math.round(result.correct/result.total*100);
 
 result.perfect=result.correct===result.total;
-```
 
 }
 
@@ -88,19 +81,16 @@ result.perfect=result.correct===result.total;
 
 const reward={
 
-```
 title:"",
 
 message:"",
 
 type:""
-```
 
 };
 
 function calculateReward(){
 
-```
 if(result.perfect){
 
     reward.type="perfect";
@@ -120,7 +110,6 @@ else{
     reward.message=theme.rewards.normal.message;
 
 }
-```
 
 }
 
@@ -183,7 +172,6 @@ let currentQuestionIndex=0;
 
 function runAnimation(type,button){
 
-```
 switch(type){
 
     case "greenFlash":
@@ -211,13 +199,11 @@ switch(type){
         break;
 
 }
-```
 
 }
 
 function playAnswerAnimation(isCorrect,clickedButton){
 
-```
 document.querySelectorAll(".answer-btn").forEach(function(btn){
 
     btn.disabled=true;
@@ -249,7 +235,6 @@ setTimeout(function(){
     nextQuestion();
 
 },theme.animations.duration);
-```
 
 }
 
@@ -259,7 +244,6 @@ setTimeout(function(){
 
 function nextQuestion(){
 
-```
 currentQuestionIndex++;
 
 if(currentQuestionIndex<questions.length){
@@ -281,7 +265,6 @@ else{
     showReward();
 
 }
-```
 
 }
 
@@ -311,7 +294,6 @@ function showScreen(screenName){
 if(screenName==="reward"){
     document.getElementById("reward-screen").style.display="flex";
 }
-```
 
 }
 
@@ -321,7 +303,6 @@ if(screenName==="reward"){
 
 function loadQuestion(){
 
-```
 const currentQuestion=questions[currentQuestionIndex];
 
 document.getElementById("question-text").textContent=currentQuestion.question;
@@ -363,7 +344,6 @@ currentQuestion.answers.forEach(function(answer,index){
     answerList.appendChild(button);
 
 });
-```
 
 }
 
@@ -373,7 +353,6 @@ currentQuestion.answers.forEach(function(answer,index){
 
 document.getElementById("start-btn").addEventListener("click",function(){
 
-```
 playSound("click");
 
 currentQuestionIndex=0;
@@ -383,7 +362,6 @@ resetResult();
 showScreen("question");
 
 loadQuestion();
-```
 
 });
 
