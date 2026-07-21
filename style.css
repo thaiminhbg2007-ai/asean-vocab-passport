@@ -50,21 +50,14 @@ main{
 ========================= */
 
 #quiz-area,
-#question-screen{
+#question-screen,
+#reward-screen{
 
     background:white;
     border-radius:20px;
     padding:60px;
     text-align:center;
     box-shadow:0 10px 30px rgba(0,0,0,.08);
-
-}
-
-#question-screen h2{
-
-    font-size:36px;
-    color:#006A4E;
-    margin-bottom:35px;
 
 }
 
@@ -91,16 +84,15 @@ main{
     background-repeat:no-repeat;
 
     border-radius:18px;
-    overflow:hidden;
-
-    color:white;
 
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
 
-    box-shadow:0 20px 40px rgba(0,0,0,.25);
+    color:white;
+
+    overflow:hidden;
 
 }
 
@@ -109,7 +101,6 @@ main{
     font-size:34px;
     font-weight:bold;
     text-align:center;
-    letter-spacing:2px;
 
 }
 
@@ -117,51 +108,8 @@ main{
 
     margin-top:20px;
     font-size:20px;
-    opacity:.85;
 
 }
-
-
-/* =========================
-   Buttons (Universal)
-========================= */
-
-.start-btn,
-.answer-btn{
-
-    transition:
-        transform .12s ease,
-        box-shadow .12s ease,
-        filter .12s ease,
-        background-color .18s ease,
-        color .18s ease;
-
-}
-
-.start-btn:hover,
-.answer-btn:hover{
-
-    transform:translateY(-3px) scale(.98);
-
-    filter:brightness(1.04);
-
-    box-shadow:0 14px 28px rgba(0,0,0,.20);
-
-}
-
-.start-btn:active,
-.answer-btn:active{
-
-    transform:translateY(2px) scale(.94);
-
-    box-shadow:0 5px 10px rgba(0,0,0,.15);
-
-}
-
-
-/* =========================
-   Start Button
-========================= */
 
 .start-btn{
 
@@ -169,28 +117,30 @@ main{
 
     padding:14px 36px;
 
-    font-size:18px;
-
     border:none;
 
-    border-radius:50px;
+    border-radius:40px;
 
-    cursor:pointer;
-
-    background:white;
-
-    color:#006A4E;
+    font-size:18px;
 
     font-weight:bold;
 
-    box-shadow:0 6px 14px rgba(0,0,0,.15);
+    cursor:pointer;
 
 }
 
 
 /* =========================
-   Answer List
+   Question
 ========================= */
+
+#question-screen h2{
+
+    color:#006A4E;
+    font-size:34px;
+    margin-bottom:35px;
+
+}
 
 #answer-list{
 
@@ -200,20 +150,11 @@ main{
 
 }
 
-
-/* =========================
-   Answer Button
-========================= */
-
 .answer-btn{
-
-    width:100%;
 
     padding:18px;
 
     font-size:20px;
-
-    font-weight:600;
 
     border:none;
 
@@ -223,9 +164,15 @@ main{
 
     background:white;
 
-    color:#1f2937;
-
     box-shadow:0 5px 15px rgba(0,0,0,.10);
+
+    transition:.2s;
+
+}
+
+.answer-btn:hover{
+
+    transform:translateY(-3px);
 
 }
 
@@ -242,143 +189,113 @@ main{
 
 #reward-screen{
 
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:25px;
+
+}
+
+
+/* Background người chơi sưu tầm */
+
+.reward-board{
+
     position:relative;
 
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:24px;
-
-    background:white;
+    width:700px;
+    height:430px;
 
     border-radius:20px;
 
-    padding:70px 50px;
-
-    text-align:center;
-
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
-
     overflow:hidden;
 
-}
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
 
-#reward-title{
-
-    font-size:48px;
-
-    color:#006A4E;
-
-}
-
-#reward-message{
-
-    font-size:24px;
-
-    color:#374151;
-
-}
-
-#reward-score{
-
-    font-size:22px;
-
-    font-weight:bold;
-
-    color:#111827;
+    box-shadow:0 12px 25px rgba(0,0,0,.18);
 
 }
 
 
-/* =========================
-   Passport Stamp
-========================= */
+/* Badge */
 
-#passport-stamp{
+.reward-badge{
 
     position:absolute;
 
-    top:40px;
+    width:120px;
 
-    right:50px;
+    left:50%;
+    top:-180px;
 
-    width:180px;
-
-    height:180px;
-
-    border:8px solid #C62828;
-
-    color:#C62828;
-
-    border-radius:50%;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    font-size:32px;
-
-    font-weight:bold;
-
-    letter-spacing:3px;
-
-    transform:rotate(-18deg) scale(3);
+    transform:translateX(-50%) scale(.3) rotate(-25deg);
 
     opacity:0;
-
-    pointer-events:none;
-
-}
-
-
-/* Hiện stamp */
-
-#passport-stamp.show{
-
-    animation:stampDrop .65s cubic-bezier(.2,1.35,.45,1) forwards;
 
 }
 
 
 /* Hiệu ứng đóng dấu */
 
+.reward-badge.drop{
+
+    animation:stampDrop .7s ease forwards;
+
+}
+
 @keyframes stampDrop{
 
     0%{
 
-        transform:rotate(-18deg) scale(3);
-
+        top:-180px;
         opacity:0;
-
-    }
-
-    45%{
-
-        transform:rotate(-18deg) scale(.82);
-
-        opacity:1;
+        transform:translateX(-50%) scale(.3) rotate(-25deg);
 
     }
 
     65%{
 
-        transform:rotate(-18deg) scale(1.08);
+        top:150px;
+        opacity:1;
+        transform:translateX(-50%) scale(1.18) rotate(-8deg);
+
+    }
+
+    80%{
+
+        top:135px;
+        transform:translateX(-50%) scale(.92);
 
     }
 
     100%{
 
-        transform:rotate(-18deg) scale(1);
-
+        top:145px;
         opacity:1;
+        transform:translateX(-50%) scale(1);
 
     }
+
+}
+
+#reward-title{
+
+    color:#006A4E;
+    font-size:42px;
+
+}
+
+#reward-message{
+
+    font-size:22px;
+
+}
+
+#reward-score{
+
+    font-size:20px;
+    font-weight:bold;
 
 }
