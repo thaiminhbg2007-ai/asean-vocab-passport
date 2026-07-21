@@ -234,3 +234,56 @@ main{
     cursor:default;
 
 }
+/* =========================
+   Reward Screen
+========================= */
+
+#reward-screen{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:24px;
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:70px 50px;
+
+    text-align:center;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+#reward-title{
+
+    font-size:48px;
+
+    color:#006A4E;
+
+}
+
+#reward-message{
+
+    font-size:24px;
+
+    color:#374151;
+
+}
+
+#reward-score{
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    color:#111827;
+
+}
