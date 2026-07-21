@@ -140,7 +140,11 @@ function showReward(){
         " / "+result.total+
 
         " ("+result.accuracy+"%)";
+// Hiện Passport
+document.querySelector(".passport-card").style.display="flex";
 
+// Ẩn nút Start
+document.getElementById("start-btn").style.display="none";
 
     // =========================
     // Passport Stamp
@@ -161,7 +165,11 @@ function showReward(){
         },150);
 
     }
+else{
 
+    stamp.textContent="";
+
+}
 }
 
 // =========================
@@ -386,10 +394,10 @@ loadQuestion();
 
 document.getElementById("reward-btn").addEventListener("click",function(){
 
-```
-playSound("click");
+    playSound("click");
 
-showScreen("passport");
-```
+    document.getElementById("start-btn").style.display="inline-block";
+
+    showScreen("passport");
 
 });
