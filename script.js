@@ -45,7 +45,6 @@ audio.play();
 
 const result={
 
-```
 total:0,
 
 correct:0,
