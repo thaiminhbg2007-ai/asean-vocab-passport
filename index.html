@@ -12,38 +12,65 @@
 <body>
 
 <header>
+
     <h1>🌏 ASEAN Vocab Passport</h1>
+
     <p>Learn English through ASEAN Football</p>
+
 </header>
 
 <main>
 
-   <section id="quiz-area">
+    <!-- Passport -->
 
-    <div class="passport-card">
+    <section id="quiz-area">
 
-        <div class="passport-cover">
+        <div class="passport-card">
 
-            <div class="passport-title" id="passport-title"></div>
+            <div class="passport-cover">
 
-<div class="passport-subtitle" id="passport-subtitle"></div>
+                <div class="passport-title" id="passport-title"></div>
 
-<button class="start-btn" id="start-btn"></button>
+                <div class="passport-subtitle" id="passport-subtitle"></div>
+
+                <button class="start-btn" id="start-btn"></button>
+
+            </div>
 
         </div>
 
-    </div>
+    </section>
 
-</section>
-    
-<section id="question-screen" style="display:none;">
 
-    <h2 id="question-text"></h2>
+    <!-- Question -->
 
-    <div id="answer-list"></div>
+    <section id="question-screen" style="display:none;">
 
-</section>
-    
+        <h2 id="question-text"></h2>
+
+        <div id="answer-list"></div>
+
+    </section>
+
+
+    <!-- Reward Screen -->
+
+    <section id="reward-screen" style="display:none;">
+
+        <h1 id="reward-title"></h1>
+
+        <p id="reward-message"></p>
+
+        <div id="reward-score"></div>
+
+        <button id="reward-btn" class="start-btn">
+
+            Back to Passport
+
+        </button>
+
+    </section>
+
 </main>
 
 <script src="theme.js"></script>
@@ -51,4 +78,5 @@
 <script src="script.js"></script>
 
 </body>
+
 </html>
