@@ -26,11 +26,7 @@ function playSound(type){
 
     const path = theme.sounds[type];
 
-    if(path===null){
-
-        return;
-
-    }
+    if(path===null) return;
 
     const audio = new Audio(path);
 
@@ -45,7 +41,7 @@ function playSound(type){
 // Result Engine
 // =========================
 
-const result = {
+const result={
 
     total:0,
 
@@ -61,23 +57,60 @@ const result = {
 
 function resetResult(){
 
-    result.total = questions.length;
-    result.correct = 0;
-    result.wrong = 0;
-    result.accuracy = 0;
-    result.perfect = false;
+    result.total=questions.length;
+    result.correct=0;
+    result.wrong=0;
+    result.accuracy=0;
+    result.perfect=false;
 
 }
 
 function calculateResult(){
 
-    result.wrong = result.total - result.correct;
+    result.wrong=result.total-result.correct;
 
-    result.accuracy = Math.round(
-        result.correct / result.total * 100
-    );
+    result.accuracy=Math.round(result.correct/result.total*100);
 
-    result.perfect = result.correct === result.total;
+    result.perfect=result.correct===result.total;
+
+}
+
+
+// =========================
+// Reward Engine
+// =========================
+
+const reward={
+
+    title:"",
+
+    message:"",
+
+    type:""
+
+};
+
+function calculateReward(){
+
+    if(result.perfect){
+
+        reward.type="perfect";
+
+        reward.title=theme.rewards.perfect.title;
+
+        reward.message=theme.rewards.perfect.message;
+
+    }
+
+    else{
+
+        reward.type="normal";
+
+        reward.title=theme.rewards.normal.title;
+
+        reward.message=theme.rewards.normal.message;
+
+    }
 
 }
 
@@ -86,7 +119,7 @@ function calculateResult(){
 // Question Engine
 // =========================
 
-let currentQuestionIndex = 0;
+let currentQuestionIndex=0;
 
 
 // =========================
@@ -99,14 +132,14 @@ function runAnimation(type,button){
 
         case "greenFlash":
 
-            button.style.backgroundColor = theme.colors.correct;
-            button.style.color = "white";
+            button.style.backgroundColor=theme.colors.correct;
+            button.style.color="white";
             break;
 
         case "redFlash":
 
-            button.style.backgroundColor = theme.colors.wrong;
-            button.style.color = "white";
+            button.style.backgroundColor=theme.colors.wrong;
+            button.style.color="white";
             break;
 
         case "fade":
@@ -139,7 +172,9 @@ function playAnswerAnimation(isCorrect,clickedButton){
 
         runAnimation(theme.animations.correct,clickedButton);
 
-    }else{
+    }
+
+    else{
 
         playSound("wrong");
 
@@ -168,20 +203,36 @@ function nextQuestion(){
 
     currentQuestionIndex++;
 
-    if(currentQuestionIndex < questions.length){
+    if(currentQuestionIndex<questions.length){
 
         loadQuestion();
 
-    }else{
+    }
+
+    else{
 
         calculateResult();
 
+        calculateReward();
+
         console.log(result);
 
+        console.log(reward);
+
         alert(
-            "Correct: " + result.correct +
-            "\nWrong: " + result.wrong +
-            "\nAccuracy: " + result.accuracy + "%"
+
+            reward.title+
+
+            "\n"+
+
+            reward.message+
+
+            "\n\nCorrect: "+result.correct+
+
+            "\nWrong: "+result.wrong+
+
+            "\nAccuracy: "+result.accuracy+"%"
+
         );
 
     }
@@ -196,6 +247,7 @@ function nextQuestion(){
 function showScreen(screenName){
 
     document.querySelector(".passport-card").style.display="none";
+
     document.getElementById("question-screen").style.display="none";
 
     if(screenName==="passport"){
@@ -245,7 +297,7 @@ function loadQuestion(){
 
             playSound("click");
 
-            const isCorrect = index===currentQuestion.correct;
+            const isCorrect=index===currentQuestion.correct;
 
             if(isCorrect){
 
