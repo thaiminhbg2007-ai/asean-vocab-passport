@@ -234,11 +234,15 @@ main{
     cursor:default;
 
 }
+
+
 /* =========================
    Reward Screen
 ========================= */
 
 #reward-screen{
+
+    position:relative;
 
     display:flex;
 
@@ -259,6 +263,8 @@ main{
     text-align:center;
 
     box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+    overflow:hidden;
 
 }
 
@@ -285,5 +291,94 @@ main{
     font-weight:bold;
 
     color:#111827;
+
+}
+
+
+/* =========================
+   Passport Stamp
+========================= */
+
+#passport-stamp{
+
+    position:absolute;
+
+    top:40px;
+
+    right:50px;
+
+    width:180px;
+
+    height:180px;
+
+    border:8px solid #C62828;
+
+    color:#C62828;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:32px;
+
+    font-weight:bold;
+
+    letter-spacing:3px;
+
+    transform:rotate(-18deg) scale(3);
+
+    opacity:0;
+
+    pointer-events:none;
+
+}
+
+
+/* Hiện stamp */
+
+#passport-stamp.show{
+
+    animation:stampDrop .65s cubic-bezier(.2,1.35,.45,1) forwards;
+
+}
+
+
+/* Hiệu ứng đóng dấu */
+
+@keyframes stampDrop{
+
+    0%{
+
+        transform:rotate(-18deg) scale(3);
+
+        opacity:0;
+
+    }
+
+    45%{
+
+        transform:rotate(-18deg) scale(.82);
+
+        opacity:1;
+
+    }
+
+    65%{
+
+        transform:rotate(-18deg) scale(1.08);
+
+    }
+
+    100%{
+
+        transform:rotate(-18deg) scale(1);
+
+        opacity:1;
+
+    }
 
 }
