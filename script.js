@@ -127,23 +127,42 @@ else{
 
 function showReward(){
 
-```
-showScreen("");
+    showScreen("reward");
 
-document.getElementById("reward-screen").style.display="flex";
+    document.getElementById("reward-screen").style.display="flex";
 
-document.getElementById("reward-title").textContent=reward.title;
+    document.getElementById("reward-title").textContent=reward.title;
 
-document.getElementById("reward-message").textContent=reward.message;
+    document.getElementById("reward-message").textContent=reward.message;
 
-document.getElementById("reward-score").textContent=
+    document.getElementById("reward-score").textContent=
 
-    "Correct: "+result.correct+
+        "Correct: "+result.correct+
 
-    " / "+result.total+
+        " / "+result.total+
 
-    " ("+result.accuracy+"%)";
-```
+        " ("+result.accuracy+"%)";
+
+
+    // =========================
+    // Passport Stamp
+    // =========================
+
+    const stamp=document.getElementById("passport-stamp");
+
+    stamp.classList.remove("show");
+
+    if(result.perfect){
+
+        stamp.textContent="PERFECT";
+
+        setTimeout(function(){
+
+            stamp.classList.add("show");
+
+        },150);
+
+    }
 
 }
 
@@ -267,23 +286,25 @@ else{
 
 function showScreen(screenName){
 
-```
-document.querySelector(".passport-card").style.display="none";
+    document.querySelector(".passport-card").style.display="none";
+    document.getElementById("question-screen").style.display="none";
+    document.getElementById("reward-screen").style.display="none";
 
-document.getElementById("question-screen").style.display="none";
+    const stamp = document.getElementById("passport-stamp");
 
-document.getElementById("reward-screen").style.display="none";
+    if(stamp){
+        stamp.classList.remove("show");
+    }
 
-if(screenName==="passport"){
+    if(screenName==="passport"){
+        document.querySelector(".passport-card").style.display="flex";
+    }
 
-    document.querySelector(".passport-card").style.display="flex";
-
-}
-
-if(screenName==="question"){
-
-    document.getElementById("question-screen").style.display="block";
-
+    if(screenName==="question"){
+        document.getElementById("question-screen").style.display="block";
+    }
+if(screenName==="reward"){
+    document.getElementById("reward-screen").style.display="flex";
 }
 ```
 
