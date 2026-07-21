@@ -64,6 +64,26 @@ const passportTheme = {
 
         duration:800
 
+    },
+
+    rewards:{
+
+        perfect:{
+
+            title:"🏅 Passport Stamp",
+
+            message:"Perfect Score!"
+
+        },
+
+        normal:{
+
+            title:"📖 Journey Complete",
+
+            message:"Good Job!"
+
+        }
+
     }
 
 };
