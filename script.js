@@ -129,8 +129,6 @@ function showReward(){
 
     showScreen("reward");
 
-    document.getElementById("reward-screen").style.display="flex";
-
     document.getElementById("reward-title").textContent=reward.title;
 
     document.getElementById("reward-message").textContent=reward.message;
