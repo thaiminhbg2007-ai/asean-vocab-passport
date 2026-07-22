@@ -84,6 +84,28 @@ const passportTheme = {
 
         }
 
+    },
+
+    // =========================
+    // Reward Assets
+    // =========================
+
+    reward:{
+
+        // Background hiển thị sau khi hoàn thành
+        background:"assets/images/backgrounds/reward-map.png",
+
+        // Badge / Stamp sẽ đóng xuống
+        badge:"assets/images/badges/vietnam-stamp.png",
+
+        // Vị trí badge trên background
+        position:{
+
+            x:320,
+            y:150
+
+        }
+
     }
 
 };
