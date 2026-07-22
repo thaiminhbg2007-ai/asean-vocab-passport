@@ -246,23 +246,24 @@ function showReward(){
         "url('"+theme.reward.background+"')";
 
 
-    // Badge
+// Badge
 
-    const badge=document.getElementById("reward-badge");
+const badge=document.getElementById("reward-badge");
 
-    badge.classList.remove("drop");
+badge.classList.remove("drop");
 
-    badge.src=theme.reward.badge;
+badge.src = theme.reward.badge;
 
-    badge.style.left=theme.reward.position.x+"px";
+badge.style.left = theme.reward.position.x + "px";
 
-    badge.style.top="-180px";
+// lưu vị trí đích để CSS animation dùng
+badge.style.setProperty("--target-y", theme.reward.position.y + "px");
 
-    setTimeout(function(){
+setTimeout(function(){
 
-        badge.classList.add("drop");
+    badge.classList.add("drop");
 
-    },200);
+},200);
 
 }
 
