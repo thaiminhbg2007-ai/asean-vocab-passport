@@ -113,19 +113,29 @@ main{
 
 .start-btn{
 
-    margin-top:60px;
+    animation:buttonFloat 2s ease-in-out infinite;
 
-    padding:14px 36px;
+}
 
-    border:none;
+@keyframes buttonFloat{
 
-    border-radius:40px;
+    0%{
 
-    font-size:18px;
+        transform:translateY(0px);
 
-    font-weight:bold;
+    }
 
-    cursor:pointer;
+    50%{
+
+        transform:translateY(-4px);
+
+    }
+
+    100%{
+
+        transform:translateY(0px);
+
+    }
 
 }
 
